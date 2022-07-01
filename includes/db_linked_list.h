@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:31:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/01 23:17:11 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/01 23:17:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	list_insert(t_list *list, int data)
 		list->head->pre = new_node;
 	list->head = new_node;
 	new_node->pre = NULL;
-	list->num_val += 1;
+	list->num_node += 1;
 }
 
 #endif
