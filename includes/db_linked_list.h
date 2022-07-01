@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:31:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/01 23:07:42 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/01 23:17:11 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct	s_db_linked_list
 {
 	t_node	*head;
 	t_node	*cur;
-	int		num_val;
+	int		num_node;
 }	t_list;
 
 void	list_init(t_list *list)
 {
 	list->head = NULL;
 	list->cur = NULL;
-	list->num_val = 0;
+	list->num_node = 0;
 }
 
 void	list_insert(t_list *list, int data)
