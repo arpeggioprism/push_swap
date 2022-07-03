@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 02:17:01 by jshin            ###   ########.fr       */
+/*   Created: 2021/12/03 17:33:46 by jshin             #+#    #+#             */
+/*   Updated: 2021/12/03 17:37:25 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# define TRUE 1
-# define FALSE 0
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*next;
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-
-# include "../libft/libft.h"
-# include "db_linked_list.h"
-
-#endif
+	while (*lst)
+	{
+		next = (*lst)->next;
+		(*del)((*lst)->content);
+		(*lst)->next = NULL;
+		free(*lst);
+		*lst = next;
+	}
+}

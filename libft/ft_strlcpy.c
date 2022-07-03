@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 02:17:01 by jshin            ###   ########.fr       */
+/*   Created: 2021/12/06 13:23:13 by jshin             #+#    #+#             */
+/*   Updated: 2022/01/28 12:46:03 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# define TRUE 1
-# define FALSE 0
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	len;
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-
-# include "../libft/libft.h"
-# include "db_linked_list.h"
-
-#endif
+	i = 0;
+	len = (unsigned int)ft_strlen(src);
+	if (size == 0)
+		return (len);
+	while (src[i] && i + 1 < size)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (i < size)
+		dest[i] = '\0';
+	return (len);
+}
