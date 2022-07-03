@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:31:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 02:19:00 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/04 04:06:47 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,35 +65,57 @@ void	stack_push_back(t_stack *list, int data)
 	list->num_node += 1;
 }
 
+int	stack_peek(t_stack *stack)
+{
+	if (!stack || !stack->head)
+		return -1;
+	return stack->head->val;
+}
+
+void	stack_pop(t_stack *stack)
+{
+	t_node	*temp;
+
+	if (!stack || !stack->head)
+		return ;
+	temp = stack->head;
+	stack->head = stack->head->next;
+	if (!stack->head)
+	{
+		stack->cur = NULL;
+		stack->tail = NULL;
+	}
+	else
+		stack->cur = stack->head->next;
+	free(temp);
+	stack->num_node -= 1;
+}
+
+void	stack_push(t_stack *stack, t_node *new_node)
+{
+	if (!stack || !new_node || !stack->head)
+		return ;
+	new_node->next = stack->head;
+	if (stack->head)
+		stack->head->pre = new_node;
+	stack->head = new_node;
+	stack->cur = new_node;
+	new_node->pre = NULL;
+	stack->num_node += 1;
+}
+
 void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*new_node;
-	t_node	*temp;
 
-	if (!a && !b && !b->head)
+	if (!a || !b)
 		return ;
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-	new_node->val = b->head->val;
-	temp = b->head;
-	b->head = b->head->next;
-	if (!b->head)
-	{
-		b->cur = NULL;
-		b->tail = NULL;
-	}
-	else
-		b->cur = b->head->next;
-	free(temp);
-	b->num_node -= 1;
-	new_node->next = a->head;
-	if (a->head)
-		a->head->pre = new_node;
-	a->head = new_node;
-	a->cur = new_node;
-	new_node->pre = NULL;
-	a->num_node += 1;
+	new_node->val = stack_peek(b);
+	stack_pop(b);
+	stack_push(a, new_node);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -101,30 +123,14 @@ void	pb(t_stack *a, t_stack *b)
 	t_node	*new_node;
 	t_node	*temp;
 
-	if (!a && !b && !a->head)
+	if (!a || !b)
 		return ;
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-	new_node->val = a->head->val;
-	temp = a->head;
-	a->head = a->head->next;
-	if (!a->head)
-	{
-		a->cur = NULL;
-		a->tail = NULL;
-	}
-	else
-		a->cur = a->head->next;
-	free(temp);
-	a->num_node -= 1;
-	new_node->next = b->head;
-	if (b->head)
-		b->head->pre = new_node;
-	b->head = new_node;
-	b->cur = new_node;
-	new_node->pre = NULL;
-	b->num_node += 1;
+	new_node->val = stack_peek(a);
+	stack_pop(a);
+	stack_push(b, new_node);
 }
 
 #endif
