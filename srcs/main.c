@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 02:17:00 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/04 02:29:12 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,13 @@ int	main(int argc, char *argv[])
 		printf("b: %d\n", b.cur->val);
 		b.cur = b.cur->next;
 	}
-	printf("\n\n");
+	printf("\n");
+	printf("a.num_node: %d\n", a.num_node);
+	printf("\n");
+	printf("b.num_node: %d\n", b.num_node);
+	printf("\n");
+	printf("-------------------------------------\n");
+	printf("\n");
 	pa(&a, &b);
 	printf("pa()\n");
 	printf("\n");
@@ -63,7 +69,13 @@ int	main(int argc, char *argv[])
 		printf("b: %d\n", b.cur->val);
 		b.cur = b.cur->next;
 	}
-	printf("\n\n");
+	printf("\n");
+	printf("a.num_node: %d\n", a.num_node);
+	printf("\n");
+	printf("b.num_node: %d\n", b.num_node);
+	printf("\n");
+	printf("-------------------------------------\n");
+	printf("\n");
 
 	pb(&a, &b);
 	printf("pb()\n");
@@ -83,5 +95,9 @@ int	main(int argc, char *argv[])
 		printf("b: %d\n", b.cur->val);
 		b.cur = b.cur->next;
 	}
+	printf("\n");
+	printf("a.num_node: %d\n", a.num_node);
+	printf("\n");
+	printf("b.num_node: %d\n", b.num_node);
 	return (0);
 }
