@@ -6,15 +6,19 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 04:05:43 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/04 05:23:20 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
 	int i;
+	int j;
+	int k;
+	char **temp;
+
 	t_stack	a;
 	t_stack	b;
 
@@ -22,9 +26,18 @@ int	main(int argc, char *argv[])
 	stack_init(&b);
 
 	i = 1;
-	while (i < argc)
+	j = 0;
+	k = 0;
+	while(argv[i])
 	{
-		stack_push_back(&a, ft_atoi(argv[i++]));
+		temp = ft_split(argv[i], ' ');
+		j = 0;
+		while(temp[j])
+		{
+				stack_push_back(&a, ft_atoi(temp[j]));
+				j++;
+		}
+		i++;
 	}
 	stack_push_back(&b, 1004);
 	stack_push_back(&b, 1005);
