@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 05:23:20 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/04 07:25:17 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,26 @@
 
 int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-	int k;
-	char **temp;
-
+	int		i;
+	int		j;
+	char	**temp;
 	t_stack	a;
 	t_stack	b;
 
 	stack_init(&a);
 	stack_init(&b);
-
 	i = 1;
 	j = 0;
-	k = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		temp = ft_split(argv[i], ' ');
 		j = 0;
-		while(temp[j])
-		{
-				stack_push_back(&a, ft_atoi(temp[j]));
-				j++;
-		}
+		while (temp[j])
+			stack_push_back(&a, ft_atoi(temp[j++]));
 		i++;
 	}
 	stack_push_back(&b, 1004);
 	stack_push_back(&b, 1005);
-	
 	printf("[a values]\n");
 	a.cur = a.head;
 	while (a.cur)
