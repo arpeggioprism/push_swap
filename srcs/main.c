@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/05 19:42:32 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/07 01:05:26 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ void	print(t_stack *a, t_stack *b)
 	printf("\n");
 }
 
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
 int	main(int argc, char **argv)
 {
 	int		i;
@@ -46,6 +52,13 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
+	if (argc < 2)
+		print_error();
+	
+	a.max = INT32_MIN;
+	a.min = INT32_MAX;
+	b.max = INT32_MIN;
+	b.min = INT32_MAX;
 	stack_init(&a);
 	stack_init(&b);
 	i = 1;
@@ -58,22 +71,9 @@ int	main(int argc, char **argv)
 			stack_push_back(&a, ft_atoi(temp[j++]));
 		i++;
 	}
-
 	print(&a, &b);
-	rra(&a);
-	printf("rra();\n\n");
+	push_swap(&a, &b);
 	print(&a, &b);
-	pb(&a, &b);
-	printf("pb();\n\n");
-	print(&a, &b);
-	sa(&a);
-	printf("sa();\n\n");
-	print(&a, &b);
-	rra(&a);
-	printf("rra();\n\n");
-	print(&a, &b);
-	pa(&a, &b);
-	printf("pa();\n\n");
-	print(&a, &b);
+	
 	return (0);
 }

@@ -6,14 +6,16 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:55:38 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/04 02:17:02 by jshin            ###   ########.fr       */
+/*   Updated: 2022/02/08 17:48:03 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "../includes/push_swap.h"
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
