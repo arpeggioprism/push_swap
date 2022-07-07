@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   arr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 19:34:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 21:27:00 by jshin            ###   ########.fr       */
+/*   Created: 2022/07/07 17:35:52 by jshin             #+#    #+#             */
+/*   Updated: 2022/07/07 17:36:11 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b)
+void	ft_check_array_sort(int *arr, int size, int idx)
 {
-	if (a->num_node == 2 && a->head->val > a->head->next->val)
-			sa(a);
-	else if (a->num_node == 3)
-		sort_only_three_in_a(a);
-	else
-		sort_the_others(a, b);
+	int	j;
+	int	checker;
+	int	tmp;
+
+	checker = 0;
+	while (idx < size)
+	{
+		j = 0;
+		while (j < size - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+				checker++;
+			}
+				j++;
+		}
+		if (arr[idx] == arr[idx + 1])
+			print_error();
+		idx++;
+	}
+	if (checker == 0)
+		print_error();
 }

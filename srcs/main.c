@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 01:05:26 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/08 07:18:54 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,31 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	int		j;
+	int		k;
+	int		size;
+	int		arr[argc - 1];
 	char	**temp;
 	t_stack	a;
 	t_stack	b;
 
 	if (argc < 2)
 		print_error();
-	
-	a.max = INT32_MIN;
-	a.min = INT32_MAX;
-	b.max = INT32_MIN;
-	b.min = INT32_MAX;
+
 	stack_init(&a);
 	stack_init(&b);
 	i = 1;
 	j = 0;
+	k = 0;
 	while (argv[i])
 	{
 		temp = ft_split(argv[i], ' ');
 		j = 0;
 		while (temp[j])
-			stack_push_back(&a, ft_atoi(temp[j++]));
+			stack_push_back_n_make_array(&a, &arr[k++], ft_atoi(temp[j++]));
 		i++;
 	}
+	ft_check_array_sort(arr, size, 0);
+	a.arr = arr;
 	print(&a, &b);
 	push_swap(&a, &b);
 	print(&a, &b);

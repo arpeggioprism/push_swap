@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 01:27:00 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/07 21:25:25 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@
 # include "../libft/libft.h"
 # include "db_linked_list.h"
 
+void	print_error(void);
 void	push_swap(t_stack *a, t_stack *b);
-void	is_max_min_main(t_stack *list, t_node *new_node, int data);
-void	is_max_min(t_stack *list, int data);
 void	stack_init(t_stack *list);
-void	stack_push_back(t_stack *list, int data);
+void	stack_push_back_n_make_array(t_stack *list, int *arr, int data);
 double	stack_peek(t_stack *stack);
 void	stack_pop(t_stack *stack);
 void	stack_push(t_stack *stack, int data);
@@ -43,7 +42,11 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-void	sort_only_three(t_stack *a);
-void	print_error(void);
+void	sort_only_three_in_a(t_stack *a);
+void	sort_the_others(t_stack *a, t_stack *b);
+void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j);
+void	ft_check_array_sort(int *arr, int size, int idx);
+void	ft_sort_three_division(t_stack *a, t_stack *b);
+void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2);
 
 #endif

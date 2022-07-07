@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:31:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 01:30:51 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/07 16:31:45 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,17 @@
 typedef struct s_node
 {
 	int				val;
-	int				first_part;
 	struct s_node	*pre;
 	struct s_node	*next;
 }	t_node;
 
 typedef struct s_db_linked_list
 {
-	int		num_node;
-	int		max;
-	int		mid;
-	int		min;
+	int		*arr;
 	t_node	*head;
 	t_node	*cur;
 	t_node	*tail;
+	int		num_node;
 }	t_stack;
 
 #endif

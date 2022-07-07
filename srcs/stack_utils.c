@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 01:30:02 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 01:30:05 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/07 16:39:32 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ void	stack_init(t_stack *list)
 	list->tail = NULL;
 }
 
-void	stack_push_back(t_stack *list, int data)
+void	stack_push_back_n_make_array(t_stack *list, int *arr, int data)
 {
 	t_node	*new_node;
+	int		i;
 
 	if (!list)
 		return ;
@@ -32,8 +33,7 @@ void	stack_push_back(t_stack *list, int data)
 	if (!new_node)
 		return ;
 	new_node->val = data;
-	new_node->first_part = 0;
-	is_max_min_main(list, new_node, data);
+	*arr = data;
 	if (list->head)
 	{
 		list->tail->next = new_node;
