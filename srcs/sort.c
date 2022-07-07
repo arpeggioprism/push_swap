@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 01:16:11 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 21:30:53 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/08 07:58:10 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	sort_the_others(t_stack *a, t_stack *b)
 		j = 0;
 		get_min_rotate(a, b, &i, &j);
 		ft_rotate_same(a, b, &i, &j);
-		ft_rotate_a(a, b, i);
-		ft_rotate_b(a, b, j);
-		pa(a, b, j);
+		ft_rotate_a(a, i);
+		ft_rotate_b(b, j);
+		pa(a, b);
 	}
-	ft_sort_big_last(a);
+	ft_sort_big_last_a(a);
 }

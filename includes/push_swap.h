@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 21:25:25 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/08 07:57:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,16 @@ void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_check_array_sort(int *arr, int size, int idx);
 void	ft_sort_three_division(t_stack *a, t_stack *b);
 void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2);
+int		set_a_location(t_stack *a, int num);
+int		get_stack_min(t_node *node);
+int		set_a_location_min(t_stack *a);
+int		get_stack_max(t_node *node);
+int		set_a_location_max(t_stack *a);
+int		set_a_location_mid(int num, t_stack *a);
+int		ft_get_bigger(int i, int j, int a_loc, int b_loc);
+void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j);
+void	ft_rotate_a(t_stack *a, int i);
+void	ft_rotate_b(t_stack *b, int j);
+void	ft_sort_big_last_a(t_stack *a);
 
 #endif

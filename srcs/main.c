@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/08 07:18:54 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/08 08:33:56 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
+	size = 0;
 	if (argc < 2)
 		print_error();
 
@@ -65,7 +66,7 @@ int	main(int argc, char **argv)
 	k = 0;
 	while (argv[i])
 	{
-		temp = ft_split(argv[i], ' ');
+		temp = ft_split(argv[i], ' ', &size);
 		j = 0;
 		while (temp[j])
 			stack_push_back_n_make_array(&a, &arr[k++], ft_atoi(temp[j++]));

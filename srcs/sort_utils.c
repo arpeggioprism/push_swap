@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:22:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 21:58:35 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/08 07:58:27 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j)
 	while (index < b->num_node)
 	{
 		num = stack_b->val;
-		a_location = set_a_location(num, i, j);
+		a_location = set_a_location(a, num);
 		if (index >= (b->num_node + 1) / 2)
 			b_location = (b->num_node - index) * -1;
 		else
@@ -69,4 +69,40 @@ void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2)
 		pb(a, b);
 	else
 		ra(a);
+}
+
+int	ft_get_bigger(int i, int j, int a_loc, int b_loc)
+{
+	if (i < 0)
+		i = i * -1;
+	if (j < 0)
+		j = j * -1;
+	if (a_loc < 0)
+		a_loc = a_loc * -1;
+	if (b_loc < 0)
+		b_loc = b_loc * -1;
+	if (i + j > a_loc + b_loc)
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_sort_big_last_a(t_stack *a)
+{
+	int	min_location;
+
+	min_location = set_a_location_min(a);
+	while (min_location)
+	{
+		if (min_location > 0)
+		{
+			ra(a);
+			min_location--;
+		}
+		else
+		{
+			rra(a);
+			min_location++;
+		}
+	}
 }
