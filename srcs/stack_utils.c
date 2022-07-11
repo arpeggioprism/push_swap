@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 01:30:02 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 16:39:32 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/12 02:13:55 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ void	stack_pop(t_stack *stack)
 		stack->tail = NULL;
 	}
 	else
+	{
 		stack->cur = stack->head;
+		stack->head->pre = NULL;
+	}
 	free(temp);
 	stack->num_node -= 1;
 }
@@ -95,5 +98,8 @@ void	stack_push(t_stack *stack, int data)
 	new_node->pre = NULL;
 	stack->num_node += 1;
 	if (stack->num_node == 1)
+	{
 		stack->tail = stack->head;
+		stack->tail->next = NULL;
+	}
 }

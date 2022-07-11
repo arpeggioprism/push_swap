@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:22:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/08 07:58:27 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/11 13:04:16 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j)
 		if (index == 0 || ft_get_bigger(*i, *j, a_location, b_location))
 		{
 			*i = a_location;
-			*i = b_location;
+			*j = b_location;
 		}
 		stack_b = stack_b->next;
 		index++;

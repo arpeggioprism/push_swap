@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:34:10 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/07 01:30:13 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/12 02:13:56 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,18 @@ void	ra(t_stack *a)
 		return ;
 	temp = a->head;
 	a->head = a->head->next;
-	a->head->pre = NULL;
-	a->tail->next = temp;
-	temp->pre = a->tail->next;
+	if (a->num_node == 2)
+		a->head->next = temp;
+	else
+		a->tail->next = temp;
+	// temp->next = NULL;
+	if (a->num_node == 2)
+		temp->pre = a->head;
+	else
+		temp->pre = a->tail;
 	a->tail = temp;
 	a->tail->next = NULL;
+	a->head->pre = NULL;
 	write(1, "ra()\n", 5);
 }
 
@@ -36,10 +43,18 @@ void	rb(t_stack *b)
 		return ;
 	temp = b->head;
 	b->head = b->head->next;
-	b->head->pre = NULL;
-	b->tail->next = temp;
+	if (b->num_node == 2)
+		b->head->next = temp;
+	else
+		b->tail->next = temp;
+	// temp->next = NULL;
+	if (b->num_node == 2)
+		temp->pre = b->head;
+	else
+		temp->pre = b->tail;
 	b->tail = temp;
 	b->tail->next = NULL;
+	b->head->pre = NULL;
 	write(1, "rb()\n", 5);
 }
 
