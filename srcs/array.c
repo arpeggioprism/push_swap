@@ -33,10 +33,15 @@ void	ft_check_array_sort(int *arr, int size, int idx)
 			}
 				j++;
 		}
-		if (arr[idx] == arr[idx + 1])
-			print_error();
 		idx++;
 	}
 	if (checker == 0)
 		print_error();
+	idx = 0;
+	while (idx < size - 1)
+	{
+		if (arr[idx] == arr[idx + 1])
+			print_error();
+		idx++;
+	}
 }

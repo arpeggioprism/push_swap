@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 14:08:11 by jshin             #+#    #+#             */
-/*   Updated: 2022/02/08 17:45:50 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/12 21:38:13 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	ft_atoi(const char *str)
 		sign = -1;
 	if ((str[i] == '-') || (str[i] == '+'))
 		i++;
-	while ((str[i] != '\0') && ('0' <= str[i]) && (str[i] <= '9'))
+	while ((str[i] != '\0') && ft_isdigit(str[i]))
 	{
 		nbr = (nbr * 10) + (str[i] - '0');
 		if (nbr > 2147483647 && sign == 1)
-			return (-1);
+			print_error();
 		if (nbr > 2147483648 && sign == -1)
-			return (0);
+			print_error();
 		i++;
 	}
 	return (sign * nbr);

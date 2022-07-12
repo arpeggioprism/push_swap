@@ -6,37 +6,37 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/11 12:56:41 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/12 20:43:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print(t_stack *a, t_stack *b)
-{
-	printf("[a values] | [b values]\n");
-	printf("\n");
-	a->cur = a->head;
-	while (a->cur)
-	{
-		printf("a: %d\n", a->cur->val);
-		a->cur = a->cur->next;
-	}
-	printf("\n");
-	b->cur = b->head;
-	while (b->cur)
-	{
-		printf("b: %d\n", b->cur->val);
-		b->cur = b->cur->next;
-	}
-	printf("\n");
-	printf("a->num_node: %d\n", a->num_node);
-	printf("\n");
-	printf("b->num_node: %d\n", b->num_node);
-	printf("\n");
-	printf("-------------------------------------\n");
-	printf("\n");
-}
+// void	print(t_stack *a, t_stack *b)
+// {
+// 	printf("[a values] | [b values]\n");
+// 	printf("\n");
+// 	a->cur = a->head;
+// 	while (a->cur)
+// 	{
+// 		printf("a: %d\n", a->cur->val);
+// 		a->cur = a->cur->next;
+// 	}
+// 	printf("\n");
+// 	b->cur = b->head;
+// 	while (b->cur)
+// 	{
+// 		printf("b: %d\n", b->cur->val);
+// 		b->cur = b->cur->next;
+// 	}
+// 	printf("\n");
+// 	printf("a->num_node: %d\n", a->num_node);
+// 	printf("\n");
+// 	printf("b->num_node: %d\n", b->num_node);
+// 	printf("\n");
+// 	printf("-------------------------------------\n");
+// 	printf("\n");
+// }
 
 void	print_error(void)
 {
@@ -74,9 +74,9 @@ int	main(int argc, char **argv)
 	}
 	ft_check_array_sort(arr, size, 0);
 	a.arr = arr;
-	print(&a, &b);
+	// print(&a, &b);
 	push_swap(&a, &b);
-	print(&a, &b);
-	
+	// print(&a, &b);
+	// system("leaks a.out");
 	return (0);
 }
