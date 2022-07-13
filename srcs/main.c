@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/14 04:23:49 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:30:17 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ int	main(int argc, char **argv)
 	push_swap(&a, &b);
 	free_machine(&a);
 	free_machine(&b);
-	system("leaks -list push_swap");
 	return (0);
 }
