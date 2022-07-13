@@ -12,6 +12,21 @@
 
 #include "../includes/push_swap.h"
 
+void	exception(int checker, int *arr, int size)
+{
+	int	idx;
+
+	if (checker == 0)
+		print_error();
+	idx = 0;
+	while (idx < size - 1)
+	{
+		if (arr[idx] == arr[idx + 1])
+			print_error();
+		idx++;
+	}
+}
+
 void	ft_check_array_sort(int *arr, int size, int idx)
 {
 	int	j;
@@ -35,13 +50,5 @@ void	ft_check_array_sort(int *arr, int size, int idx)
 		}
 		idx++;
 	}
-	if (checker == 0)
-		print_error();
-	idx = 0;
-	while (idx < size - 1)
-	{
-		if (arr[idx] == arr[idx + 1])
-			print_error();
-		idx++;
-	}
+	exception(checker, arr, size);
 }

@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/12 20:43:36 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/13 21:14:56 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,39 +44,43 @@ void	print_error(void)
 	exit(1);
 }
 
-int	main(int argc, char **argv)
+void	preprocess(char **argv, int *size, t_stack *a, int *arr)
 {
 	int		i;
 	int		j;
 	int		k;
-	int		size;
-	int		arr[argc - 1];
 	char	**temp;
+
+	i = 1;
+	j = 0;
+	k = 0;
+	while (argv[i])
+	{
+		temp = ft_split(argv[i], ' ', size);
+		j = 0;
+		while (temp[j])
+			stack_push_back_n_make_array(a, &arr[k++], ft_atoi(temp[j++]));
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int		size;
+	int		arr[10000];
 	t_stack	a;
 	t_stack	b;
 
 	size = 0;
 	if (argc < 2)
 		print_error();
-
 	stack_init(&a);
 	stack_init(&b);
-	i = 1;
-	j = 0;
-	k = 0;
-	while (argv[i])
-	{
-		temp = ft_split(argv[i], ' ', &size);
-		j = 0;
-		while (temp[j])
-			stack_push_back_n_make_array(&a, &arr[k++], ft_atoi(temp[j++]));
-		i++;
-	}
+	preprocess(argv, &size, &a, arr);
 	ft_check_array_sort(arr, size, 0);
 	a.arr = arr;
 	// print(&a, &b);
 	push_swap(&a, &b);
 	// print(&a, &b);
-	// system("leaks a.out");
 	return (0);
 }

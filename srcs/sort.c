@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 01:16:11 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/11 12:56:49 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/13 16:51:35 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_the_others(t_stack *a, t_stack *b)
 	while (a->num_node > 3)
 		pb(a, b);
 	if (a->num_node == 2 && a->head->val > a->head->next->val)
-			sa(a);
+		sa(a);
 	if (a->num_node == 3)
 		sort_only_three_in_a(a);
 	while (b->num_node)

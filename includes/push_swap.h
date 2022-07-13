@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/11 13:04:05 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/13 17:15:53 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ void	sort_only_three_in_a(t_stack *a);
 void	sort_the_others(t_stack *a, t_stack *b);
 void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_check_array_sort(int *arr, int size, int idx);
+void	exception(int checker, int *arr, int size);
 void	ft_sort_three_division(t_stack *a, t_stack *b);
 void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2);
+void	preprocess(char **argv, int *size, t_stack *a, int *arr);
 int		set_a_location(t_stack *a, int num);
 int		get_stack_min(t_node *node);
 int		set_a_location_min(t_stack *a);
@@ -59,5 +61,6 @@ void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_rotate_a(t_stack *a, int i);
 void	ft_rotate_b(t_stack *b, int j);
 void	ft_sort_big_last_a(t_stack *a);
+
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_rotate_util.c                                 :+:      :+:    :+:   */
+/*   sort_rotate_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 07:32:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/11 13:03:57 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/13 16:53:43 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	set_a_location_max(t_stack *a)
 	int			ret;
 	int			index;
 	int			tmp;
-	t_node	*stack_a;
+	t_node		*stack_a;
 
 	ret = 0;
 	tmp = 0;
@@ -95,7 +95,7 @@ int	set_a_location_max(t_stack *a)
 
 int	set_a_location_mid(int num, t_stack *a)
 {
-	t_node	*stack_a;
+	t_node		*stack_a;
 	int			ret;
 
 	stack_a = a->head;

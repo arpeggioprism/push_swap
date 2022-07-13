@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:38:12 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/08 08:04:39 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/13 16:50:22 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ char	**ft_split(char const *s, char c, int *size)
 	unsigned int	nb_strs;
 	unsigned int	i;
 
-	if (!s)
-		return (NULL);
 	nb_strs = ft_get_nb_strs(s, c);
 	tab = (char **)malloc(sizeof(char *) * (nb_strs + 1));
 	if (!tab)
