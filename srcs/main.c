@@ -6,37 +6,11 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/13 21:14:56 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:23:49 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// void	print(t_stack *a, t_stack *b)
-// {
-// 	printf("[a values] | [b values]\n");
-// 	printf("\n");
-// 	a->cur = a->head;
-// 	while (a->cur)
-// 	{
-// 		printf("a: %d\n", a->cur->val);
-// 		a->cur = a->cur->next;
-// 	}
-// 	printf("\n");
-// 	b->cur = b->head;
-// 	while (b->cur)
-// 	{
-// 		printf("b: %d\n", b->cur->val);
-// 		b->cur = b->cur->next;
-// 	}
-// 	printf("\n");
-// 	printf("a->num_node: %d\n", a->num_node);
-// 	printf("\n");
-// 	printf("b->num_node: %d\n", b->num_node);
-// 	printf("\n");
-// 	printf("-------------------------------------\n");
-// 	printf("\n");
-// }
 
 void	print_error(void)
 {
@@ -59,15 +33,34 @@ void	preprocess(char **argv, int *size, t_stack *a, int *arr)
 		temp = ft_split(argv[i], ' ', size);
 		j = 0;
 		while (temp[j])
-			stack_push_back_n_make_array(a, &arr[k++], ft_atoi(temp[j++]));
+		{
+			stack_push_back_n_make_array(a, &arr[k++], ft_atoi(temp[j]));
+			free(temp[j++]);
+		}
+		free(temp);
 		i++;
+	}
+}
+
+void	free_machine(t_stack *stack)
+{
+	t_node	*temp;
+
+	if (!stack)
+		return ;
+	stack->cur = stack->head;
+	while (stack->cur)
+	{
+		temp = stack->cur;
+		stack->cur = stack->cur->next;
+		free(temp);
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	int		size;
-	int		arr[10000];
+	int		arr[5000];
 	t_stack	a;
 	t_stack	b;
 
@@ -79,8 +72,9 @@ int	main(int argc, char **argv)
 	preprocess(argv, &size, &a, arr);
 	ft_check_array_sort(arr, size, 0);
 	a.arr = arr;
-	// print(&a, &b);
 	push_swap(&a, &b);
-	// print(&a, &b);
+	free_machine(&a);
+	free_machine(&b);
+	system("leaks -list push_swap");
 	return (0);
 }

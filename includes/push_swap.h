@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/13 17:15:53 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:26:39 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_rotate_a(t_stack *a, int i);
 void	ft_rotate_b(t_stack *b, int j);
 void	ft_sort_big_last_a(t_stack *a);
-
 
 #endif

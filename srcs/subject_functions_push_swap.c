@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:34:12 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/12 19:06:19 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/14 04:11:51 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 double	pa(t_stack *a, t_stack *b)
 {
-	int	temp;
+	double	temp;
 
 	if (!a || !b)
 		return (99999999999);
 	temp = stack_peek(b);
-	if (temp == -1)
+	if (temp == 99999999999)
 		return (99999999999);
 	stack_pop(b);
-	stack_push(a, temp);
+	stack_push(a, (int)temp);
 	write(1, "pa\n", 3);
-	return (temp);
+	return ((int)temp);
 }
 
 double	pb(t_stack *a, t_stack *b)
 {
-	int	temp;
+	double	temp;
 
 	if (!b || !a)
-		return (99999999999);
+		print_error();
 	temp = stack_peek(a);
-	if (temp == -1)
+	if (temp == 99999999999)
 		return (99999999999);
 	stack_pop(a);
-	stack_push(b, temp);
+	stack_push(b, (int)temp);
 	write(1, "pb\n", 3);
-	return (temp);
+	return ((int)temp);
 }
 
 void	sa(t_stack *a)
