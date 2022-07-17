@@ -1,8 +1,9 @@
 NAME		= push_swap
+BONUS		= checker_mac
 LIBFT		= libft
 LIBFT_LIB	= libft.a
 
-SRCS		= srcs/array.c \
+SRCS_A		= srcs/array.c \
 			srcs/main.c \
 			srcs/push_swap.c \
 			srcs/sort_rotate_utils.c \
@@ -13,18 +14,32 @@ SRCS		= srcs/array.c \
 			srcs/subject_functions_push_swap.c \
 			srcs/subject_functions_reverse_rotate.c \
 			srcs/subject_functions_rotate.c
+			
+SRCS_B		= srcs/checker_bonus.c \
+			srcs/get_next_line.c
 
-OBJS		= $(SRCS:%.c=%.o)
+OBJS_A		= $(SRCS_A:%.c=%.o)
+
+OBJS_B		= $(SRCS_B:.c=.o)
 
 LIBC		= ar rc
 
-FLAGS		= -Wall -Wextra -Werror -g
+FLAGS		= -Wall -Wextra -Werror
+
+ifdef WITH_BONUS
+OBJS = $(OBJS_A) $(OBJS_B)
+else
+OBJS = $(OBJS_A)
+endif
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 		make all -C $(LIBFT)/
 		gcc -o $(NAME) $(OBJS) -Llibft -lft
+
+bonus		:
+	@make WITH_BONUS=1 all
 
 %.o			:	%.c
 		gcc $(FLAGS) -c $^ -I./ -o $@
@@ -36,6 +51,7 @@ clean		:
 
 fclean		:	clean
 		rm -f $(NAME)
+		rm -f $(BONUS)
 		rm -f $(LIBFT_LIB)
 		make fclean -C $(LIBFT)
 

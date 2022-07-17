@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/14 04:30:17 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 01:04:18 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void	free_machine(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	int		size;
-	int		arr[5000];
+	int		arr[99999];
 	t_stack	a;
 	t_stack	b;
 
 	size = 0;
 	if (argc < 2)
-		print_error();
+		return (0);
 	stack_init(&a);
 	stack_init(&b);
 	preprocess(argv, &size, &a, arr);

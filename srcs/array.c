@@ -17,7 +17,7 @@ void	exception(int checker, int *arr, int size)
 	int	idx;
 
 	if (checker == 0)
-		print_error();
+		exit(0);
 	idx = 0;
 	while (idx < size - 1)
 	{

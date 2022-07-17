@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/14 04:29:59 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 03:21:50 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define TRUE 1
 # define FALSE 0
+# define BUFFER_SIZE 10000
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -60,5 +61,11 @@ void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_rotate_a(t_stack *a, int i);
 void	ft_rotate_b(t_stack *b, int j);
 void	ft_sort_big_last_a(t_stack *a);
+
+char	*get_next_line(int fd);
+void	preprocess_bonus(char **argv, int *size, t_stack *a);
+void	check_function(char *str, t_stack *a, t_stack *b);
+void	stack_push_back_n_make_array_bonus(t_stack *list, int data);
+int		is_sorted(t_stack *a);
 
 #endif
