@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   subject_functions_push_swap.c                      :+:      :+:    :+:   */
+/*   subject_functions_push_swap_bonus.c                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:34:12 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/18 16:57:09 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 16:56:54 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ double	pa(t_stack *a, t_stack *b)
 		return (99999999999);
 	stack_pop(b);
 	stack_push(a, (int)temp);
-	write(1, "pa\n", 3);
 	return ((int)temp);
 }
 
@@ -38,7 +37,6 @@ double	pb(t_stack *a, t_stack *b)
 		return (99999999999);
 	stack_pop(a);
 	stack_push(b, (int)temp);
-	write(1, "pb\n", 3);
 	return ((int)temp);
 }
 
@@ -51,7 +49,6 @@ void	sa(t_stack *a)
 	temp = a->head->val;
 	a->head->val = a->head->next->val;
 	a->head->next->val = temp;
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b)
@@ -63,7 +60,6 @@ void	sb(t_stack *b)
 	temp = b->head->val;
 	b->head->val = b->head->next->val;
 	b->head->next->val = temp;
-	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *a, t_stack *b)
@@ -84,5 +80,4 @@ void	ss(t_stack *a, t_stack *b)
 		b->head->val = b->head->next->val;
 		b->head->next->val = temp;
 	}
-	write(1, "ss\n", 3);
 }

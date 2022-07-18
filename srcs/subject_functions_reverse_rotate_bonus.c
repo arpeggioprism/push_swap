@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   subject_functions_reverse_rotate.c                 :+:      :+:    :+:   */
+/*   subject_functions_reverse_rotate_bonus.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:34:27 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/18 16:55:21 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 16:54:45 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	rra(t_stack *a)
 	a->head->pre = temp;
 	a->head = temp;
 	a->head->pre = NULL;
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b)
@@ -43,7 +42,6 @@ void	rrb(t_stack *b)
 	b->head->pre = temp;
 	b->head = temp;
 	b->head->pre = NULL;
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -70,5 +68,4 @@ void	rrr(t_stack *a, t_stack *b)
 		a = b;
 		i++;
 	}
-	write(1, "rrr\n", 4);
 }

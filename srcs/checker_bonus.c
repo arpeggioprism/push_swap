@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 22:54:20 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/18 03:04:31 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 17:13:46 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,14 @@ void	check_function(char *str, t_stack *a, t_stack *b)
 		pa(a, b);
 	else if (ft_strnstr(str, "pb\n", 4))
 		pb(a, b);
+	else if (ft_strnstr(str, "rra\n", 4))
+		rra(a);
+	else if (ft_strnstr(str, "rrb\n", 4))
+		rrb(b);
+	else if (ft_strnstr(str, "rrr\n", 4))
+		rrr(a, b);
+	else if (ft_strnstr(str, "ss\n", 4))
+		ss(a, b);
 	else if (ft_strnstr(str, "ra\n", 4))
 		ra(a);
 	else if (ft_strnstr(str, "rb\n", 4))
@@ -75,16 +83,8 @@ void	check_function(char *str, t_stack *a, t_stack *b)
 		sa(a);
 	else if (ft_strnstr(str, "sb\n", 4))
 		sb(b);
-	else if (ft_strnstr(str, "ss\n", 4))
-		ss(a, b);
-	else if (ft_strnstr(str, "rra\n", 4))
-		rra(a);
-	else if (ft_strnstr(str, "rrb\n", 4))
-		rrb(b);
 	else if (ft_strnstr(str, "rr\n", 4))
 		rr(a, b);
-	else if (ft_strnstr(str, "rrr\n", 4))
-		rrr(a, b);
 	else
 		print_error();
 }
@@ -116,16 +116,18 @@ int	main(int argc, char **argv)
 	stack_init(&a);
 	stack_init(&b);
 	preprocess_bonus(argv, &size, &a);
-	// ft_check_array_sort(arr, size, 0);
-	// a.arr = arr;
 	str = get_next_line(0);
 	while (str)
 	{
 		check_function(str, &a, &b);
+		free(str);
 		str = get_next_line(0);
 	}
 	if (is_sorted(&a))
-		write(1, "ok\n", 3);
+		write(1, "OK\n", 3);
 	else
-		write(1, "ko\n", 3);
+		write(1, "KO\n", 3);
+	free_machine(&a);
+	free_machine(&b);
+	return (0);
 }

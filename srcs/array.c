@@ -39,6 +39,8 @@ void	ft_check_array_sort(int *arr, int size, int idx)
 		j = 0;
 		while (j < size - 1)
 		{
+			if (j > 99997)
+				print_error();
 			if (arr[j] > arr[j + 1])
 			{
 				tmp = arr[j];

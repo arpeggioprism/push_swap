@@ -6,17 +6,11 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:04:53 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/18 01:04:18 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 17:23:53 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	print_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 void	preprocess(char **argv, int *size, t_stack *a, int *arr)
 {
@@ -39,21 +33,6 @@ void	preprocess(char **argv, int *size, t_stack *a, int *arr)
 		}
 		free(temp);
 		i++;
-	}
-}
-
-void	free_machine(t_stack *stack)
-{
-	t_node	*temp;
-
-	if (!stack)
-		return ;
-	stack->cur = stack->head;
-	while (stack->cur)
-	{
-		temp = stack->cur;
-		stack->cur = stack->cur->next;
-		free(temp);
 	}
 }
 
