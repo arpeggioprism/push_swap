@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:31:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/10 15:12:22 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 20:01:11 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,15 @@ typedef struct s_db_linked_list
 	t_node	*tail;
 	int		num_node;
 }	t_stack;
+
+typedef struct s_v
+{
+	int		a_idx;
+	int		b_idx;
+	int		index;
+	int		num;
+	int		min;
+	int		max;
+}	t_get_min_rotate_variables;
 
 #endif

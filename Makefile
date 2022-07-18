@@ -1,5 +1,5 @@
 NAME		= push_swap
-BONUS		= checker_mac
+BONUS		= checker
 LIBFT		= libft
 LIBFT_LIB	= libft.a
 
@@ -49,7 +49,7 @@ bonus		:
 	@make WITH_BONUS=1 all
 
 %.o			:	%.c
-		gcc $(FLAGS) -c $^ -I./ -o $@
+		gcc $(FLAGS) -c $^ -Iincludes -o $@
 
 
 clean		:

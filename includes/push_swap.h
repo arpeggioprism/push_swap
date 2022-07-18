@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:43:19 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/18 17:01:11 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 20:34:56 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	exception(int checker, int *arr, int size);
 void	ft_sort_three_division(t_stack *a, t_stack *b);
 void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2);
 void	preprocess(char **argv, int *size, t_stack *a, int *arr);
-int		set_a_location(t_stack *a, int num);
+int		set_a_location(t_stack *a, int num, int min, int max);
 int		get_stack_min(t_node *node);
-int		set_a_location_min(t_stack *a);
 int		get_stack_max(t_node *node);
-int		set_a_location_max(t_stack *a);
-int		set_a_location_mid(int num, t_stack *a);
-int		ft_get_bigger(int i, int j, int a_loc, int b_loc);
+int		set_a_location_min(t_stack *a, int min);
+int		set_a_location_max(t_stack *a, int max);
+int		set_a_location_mid(t_stack *a, int num);
+int		ft_get_bigger(int i, int j, int a_idx, int b_idx);
 void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j);
 void	ft_rotate_a(t_stack *a, int i);
 void	ft_rotate_b(t_stack *b, int j);

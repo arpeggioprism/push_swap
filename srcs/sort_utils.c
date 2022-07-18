@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:22:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/12 02:50:20 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 20:01:37 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,28 @@
 
 void	get_min_rotate(t_stack *a, t_stack *b, int *i, int *j)
 {
-	int			a_location;
-	int			b_location;
-	int			index;
-	t_node		*stack_b;
-	int			num;
+	t_get_min_rotate_variables	v;
+	t_node						*stack_b;
 
-	index = 0;
+	v.index = 0;
 	stack_b = b->head;
-	while (index < b->num_node)
+	v.min = get_stack_min(a->head);
+	v.max = get_stack_max(a->head);
+	while (v.index < b->num_node)
 	{
-		num = stack_b->val;
-		a_location = set_a_location(a, num);
-		if (index >= (b->num_node + 1) / 2)
-			b_location = (b->num_node - index) * -1;
+		v.num = stack_b->val;
+		v.a_idx = set_a_location(a, v.num, v.min, v.max);
+		if (v.index >= (b->num_node + 1) / 2)
+			v.b_idx = (b->num_node - v.index) * -1;
 		else
-			b_location = index;
-		if (index == 0 || ft_get_bigger(*i, *j, a_location, b_location))
+			v.b_idx = v.index;
+		if (v.index == 0 || ft_get_bigger(*i, *j, v.a_idx, v.b_idx))
 		{
-			*i = a_location;
-			*j = b_location;
+			*i = v.a_idx;
+			*j = v.b_idx;
 		}
 		stack_b = stack_b->next;
-		index++;
+		v.index++;
 	}
 }
 
@@ -71,17 +70,17 @@ void	ft_sort_3div_insruct(t_stack *a, t_stack *b, int pivot1, int pivot2)
 		ra(a);
 }
 
-int	ft_get_bigger(int i, int j, int a_loc, int b_loc)
+int	ft_get_bigger(int i, int j, int a_idx, int b_idx)
 {
 	if (i < 0)
 		i = i * -1;
 	if (j < 0)
 		j = j * -1;
-	if (a_loc < 0)
-		a_loc = a_loc * -1;
-	if (b_loc < 0)
-		b_loc = b_loc * -1;
-	if (i + j > a_loc + b_loc)
+	if (a_idx < 0)
+		a_idx = a_idx * -1;
+	if (b_idx < 0)
+		b_idx = b_idx * -1;
+	if (i + j > a_idx + b_idx)
 		return (1);
 	else
 		return (0);
@@ -89,20 +88,22 @@ int	ft_get_bigger(int i, int j, int a_loc, int b_loc)
 
 void	ft_sort_big_last_a(t_stack *a)
 {
-	int	min_location;
+	int	min;
+	int	idx;
 
-	min_location = set_a_location_min(a);
-	while (min_location)
+	min = get_stack_min(a->head);
+	idx = set_a_location_min(a, min);
+	while (idx)
 	{
-		if (min_location > 0)
+		if (idx > 0)
 		{
 			ra(a);
-			min_location--;
+			idx--;
 		}
 		else
 		{
 			rra(a);
-			min_location++;
+			idx++;
 		}
 	}
 }

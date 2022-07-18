@@ -6,23 +6,23 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:56:56 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/11 13:04:09 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 20:00:26 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	set_a_location(t_stack *a, int num)
+int	set_a_location(t_stack *a, int num, int min, int max)
 {
-	int	ret;
+	int	idx;
 
-	if (num < get_stack_min(a->head))
-		ret = set_a_location_min(a);
-	else if (num > get_stack_max(a->head))
-		ret = set_a_location_max(a);
+	if (num < min)
+		idx = set_a_location_min(a, min);
+	else if (num > max)
+		idx = set_a_location_max(a, max);
 	else
-		ret = set_a_location_mid(num, a);
-	return (ret);
+		idx = set_a_location_mid(a, num);
+	return (idx);
 }
 
 void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j)
@@ -30,14 +30,14 @@ void	ft_rotate_same(t_stack *a, t_stack *b, int *i, int *j)
 	while (*i && *j && (*i > 0 && *j > 0))
 	{
 		rr(a, b);
-		*i = *i - 1;
-		*j = *j - 1;
+		(*i)--;
+		(*j)--;
 	}
 	while (*i && *j && (*i < 0 && *j < 0))
 	{
 		rrr(a, b);
-		*i = *i + 1;
-		*j = *j + 1;
+		(*i)++;
+		(*j)++;
 	}
 }
 

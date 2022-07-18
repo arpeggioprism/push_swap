@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 07:32:41 by jshin             #+#    #+#             */
-/*   Updated: 2022/07/13 16:53:43 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/18 19:18:04 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,38 @@
 
 int	get_stack_min(t_node *node)
 {
-	int	ret;
+	int	min;
 
-	ret = node->val;
+	min = node->val;
 	while (node)
 	{
-		if (ret > node->val)
-		{
-			ret = node->val;
-		}
+		if (min > node->val)
+			min = node->val;
 		node = node->next;
 	}
-	return (ret);
+	return (min);
 }
 
-int	set_a_location_min(t_stack *a)
+int	set_a_location_min(t_stack *a, int min)
 {
-	int			ret;
-	int			index;
-	int			tmp;
-	t_node		*stack_a;
+	int		idx;
+	int		tmp;
+	t_node	*stack_a;
 
-	ret = 0;
+	idx = 0;
 	tmp = 0;
 	stack_a = a->head;
-	index = get_stack_min(stack_a);
 	while (stack_a)
 	{
 		tmp = stack_a->val;
-		if (tmp == index)
+		if (tmp == min)
 			break ;
-		ret++;
+		idx++;
 		stack_a = stack_a->next;
 	}
-	if (ret >= (a->num_node + 1) / 2)
-		ret = (a->num_node - ret) * -1;
-	return (ret);
+	if (idx >= (a->num_node + 1) / 2)
+		idx = (a->num_node - idx) * -1;
+	return (idx);
 }
 
 int	get_stack_max(t_node *node)
@@ -60,54 +56,50 @@ int	get_stack_max(t_node *node)
 	while (node)
 	{
 		if (ret < node->val)
-		{
 			ret = node->val;
-		}
 		node = node->next;
 	}
 	return (ret);
 }
 
-int	set_a_location_max(t_stack *a)
+int	set_a_location_max(t_stack *a, int max)
 {
-	int			ret;
-	int			index;
-	int			tmp;
-	t_node		*stack_a;
+	int		idx;
+	int		tmp;
+	t_node	*stack_a;
 
-	ret = 0;
+	idx = 0;
 	tmp = 0;
 	stack_a = a->head;
-	index = get_stack_max(stack_a);
 	while (stack_a)
 	{
 		tmp = stack_a->val;
-		if (tmp == index)
+		if (tmp == max)
 			break ;
-		ret++;
+		idx++;
 		stack_a = stack_a->next;
 	}
-	ret++;
-	if (ret >= (a->num_node + 1) / 2)
-		ret = (a->num_node - ret) * -1;
-	return (ret);
+	idx++;
+	if (idx >= (a->num_node + 1) / 2)
+		idx = (a->num_node - idx) * -1;
+	return (idx);
 }
 
-int	set_a_location_mid(int num, t_stack *a)
+int	set_a_location_mid(t_stack *a, int num)
 {
-	t_node		*stack_a;
-	int			ret;
+	t_node	*stack_a;
+	int		idx;
 
 	stack_a = a->head;
-	ret = 1;
+	idx = 1;
 	while (stack_a->next)
 	{
 		if (num > stack_a->val && num < stack_a->next->val)
 			break ;
-		ret++;
+		idx++;
 		stack_a = stack_a->next;
 	}
-	if (ret >= (a->num_node + 1) / 2)
-		ret = (a->num_node - ret) * -1;
-	return (ret);
+	if (idx >= (a->num_node + 1) / 2)
+		idx = (a->num_node - idx) * -1;
+	return (idx);
 }
